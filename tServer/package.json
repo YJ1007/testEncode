@@ -1,0 +1,14 @@
+{
+  "name": "tserver",
+  "version": "1.0.0",
+  "description": "test server",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "dependencies": {
+    "uws": "^0.14.5"
+  },
+  "author": "Yashwant",
+  "license": "ISC"
+}

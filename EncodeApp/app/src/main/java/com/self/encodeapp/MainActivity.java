@@ -23,15 +23,15 @@ import okhttp3.WebSocketListener;
 public class MainActivity extends AppCompatActivity {
   OkHttpClient client;
   Button button;
-  int ackId = 88743;
-  int vid = 32843;
+  int ackId = 50;
+  int vid = 4352;
   String TAG = MainActivity.class.getCanonicalName();
   @Override
   protected void onCreate(Bundle savedInstanceState) {
     super.onCreate(savedInstanceState);
     setContentView(R.layout.activity_main);
     client = new OkHttpClient();
-    final Request request = new Request.Builder().url("ws://10.10.10.231:9000/wss").build();
+    final Request request = new Request.Builder().url("ws://192.168.43.185:9000/wss").build();
     Log.d(TAG, "request " + request);
     button = findViewById(R.id.ens);
     button.setOnClickListener(new View.OnClickListener() {
@@ -44,10 +44,10 @@ public class MainActivity extends AppCompatActivity {
 
   public static byte[] intToByteArray(int val) {
     byte[] ret = new byte[4];
-    ret[3] = (byte) val;
-    ret[2] = (byte) (val >> 8);
-    ret[1] = (byte) (val >> 16);
-    ret[0] = (byte) (val >> 24);
+    ret[0] = (byte) val;
+    ret[1] = (byte) (val >>> 8);
+    ret[2] = (byte) (val >>> 16);
+    ret[3] = (byte) (val >>> 24);
     return ret;
   }
 

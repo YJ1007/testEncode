@@ -20,19 +20,9 @@ function start(){
         var buff = Buffer.from(message);
         console.log("buffer ", buff);
         console.log("buffer len ", buff.length);
-        var ack_1 = buff.readUInt32LE(4);
-        var ack_0 = buff.readUInt32LE(0);
-        var ackFromBuff = ack_1 * VAL_32 + ack_0;
-
-        // var msgBuff = buff.slice(8);
-
-        // var vid_1 = msgBuff.readUInt32LE(4);
-        // var vid_0 = msgBuff.readUInt32LE(0);
-        // var vid = vid_1 * VAL_32 + vid_0;
-        // msgBuff = msgBuff.slice(8);
-
-        // console.log("vid is ", vid);
-        console.log("ack is ", ackFromBuff);
+        var ack = buff.readUIntLE(0, 4);
+        var vid = buff.readUIntLE(4, 4);
+        console.log("ack is ", ack, "vid is ", vid);
       }
     });
 
